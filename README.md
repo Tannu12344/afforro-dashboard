@@ -1,58 +1,116 @@
 # Aforro Sales Dashboard
 
-A React + Vite implementation of a sales dashboard UI, with a customers data table powered by the JSONPlaceholder API.
+## Project Overview
 
-## Project Setup
+This project is a React-based Sales Dashboard built according to the provided Figma design. The dashboard presents sales analytics, customer insights, product performance, geographical sales distribution, and customer data fetched from an external API.
 
-```bash
-# Install dependencies
-npm install
-
-# Start development server
-npm run dev
-
-# Build for production
-npm run build
-
-# Preview production build
-npm run preview
-```
-
-The app runs at `http://localhost:5173` by default.
+---
 
 ## Tech Stack
 
-- React 18 (functional components + hooks)
-- Vite
-- Axios for API requests
-- lucide-react for icons
-- Plain CSS with custom design tokens (CSS variables)
+* React.js
+* CSS3
+* Recharts
+* Axios
+* JSONPlaceholder API
+
+---
 
 ## Features Implemented
 
-### Part 1 — Dashboard UI
-- Sidebar navigation with sections (Menu / General) and an "Upgrade to Pro" card
-- Top bar with search, notification/mail icons, and user profile
-- Stats cards row (Revenue, Orders, New Customers, Conversion Rate) with up/down trend indicators
-- Revenue overview panel with a stacked bar chart (Online vs In-Store sales) and legend
-- Sales by Category panel with a CSS-based donut chart and legend
-- Fully responsive layout (sidebar collapses, grids stack on smaller screens)
+### UI Implementation
 
-### Part 2 — API Integration & Data Table
-- Fetches user data from `https://jsonplaceholder.typicode.com/users` using Axios
-- Displays Name, Email, Company Name, and City in a table
-- **Search**: filters by name or email (case-insensitive, live)
-- **Sort**: click the "Name" column header to toggle ascending/descending order
-- **Filter**: dropdown to filter rows by city (populated dynamically from the fetched data)
-- **Loading state**: shows a "Loading customers..." message while the request is in flight
-- **Error state**: shows a friendly error message if the request fails
-- **Empty state**: shows a message when no rows match the current search/filter
+* Responsive dashboard layout
+* Sidebar navigation
+* Top navigation bar
+* Today's Sales summary cards
+* Visitor Insights card
+* Revenue analytics chart
+* Customer Satisfaction chart
+* Target vs Reality chart
+* Top Products table
+* Sales Mapping by Country
+* Volume vs Service Level chart
+
+### API Integration
+
+* Fetched customer data from:
+  https://jsonplaceholder.typicode.com/users
+
+### Data Table Features
+
+* Search customers by name or email
+* Filter customers by city
+* Sort customers alphabetically by name
+* Loading state
+* Error handling
+* Empty state handling
+
+---
+
+## Project Setup
+
+### 1. Clone Repository
+
+```bash
+git clone <repository-url>
+```
+
+### 2. Navigate to Project
+
+```bash
+cd aforro-dashboard
+```
+
+### 3. Install Dependencies
+
+```bash
+npm install
+```
+
+### 4. Start Development Server
+
+```bash
+npm run dev
+```
+
+### 5. Build Project
+
+```bash
+npm run build
+```
+
+---
 
 ## Assumptions & Decisions
 
-- The exact Figma file required login/access that wasn't available during development, so the dashboard layout (sidebar, stat cards, charts, table) was built to closely match the general structure and visual hierarchy of a typical sales dashboard (as described in the assignment), rather than pixel-matching specific values from the design file.
-- Chart data (revenue bars, category donut, stat card numbers) is static/mock data, since no analytics API was specified.
-- Sorting is implemented only for the Name column (as required); other columns remain in their fetched order.
-- Search matches against both `name` and `email` fields simultaneously.
-- City filter options are derived dynamically from the actual API response rather than hardcoded.
-- Styling uses plain CSS with CSS custom properties (design tokens) instead of a UI framework, to keep the bundle lightweight and styles easy to customize.
+* Recharts was used for data visualization.
+* JSONPlaceholder API was used as a mock customer data source.
+* Dashboard styling was implemented using plain CSS.
+* Layout and visual appearance were designed to closely match the provided Figma design.
+* Customer table functionality was implemented using React hooks and client-side filtering/sorting.
+* World map markers were simulated using positioned elements over a map image.
+
+---
+
+## Folder Structure
+
+```text
+src
+├── components
+│   ├── Sidebar.jsx
+│   ├── Topbar.jsx
+│   ├── StatsGrid.jsx
+│   ├── RevenueChart.jsx
+│   ├── VisitorInsights.jsx
+│   ├── CustomerSatisfaction.jsx
+│   ├── TargetReality.jsx
+│   ├── TopProducts.jsx
+│   ├── SalesMapping.jsx
+│   ├── VolumeServiceLevel.jsx
+│   └── CustomersTable.jsx
+│
+├── App.jsx
+├── main.jsx
+└── index.css
+```
